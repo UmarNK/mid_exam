@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_mid/cart_view.dart';
 import 'package:lab_mid/resources/color_manager.dart';
 import 'package:lab_mid/resources/values_manager.dart';
 
@@ -102,32 +103,36 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: ColorManager.white,
-                      borderRadius: BorderRadius.circular(AppSize.size25),
-                    ),
-                    margin: const EdgeInsets.all(10),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            products[index].image,
-                            width: 120,
-                            height: 120,
-                            fit: BoxFit.cover,
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            products[index].name,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                  return InkWell(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Cart())),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: ColorManager.white,
+                        borderRadius: BorderRadius.circular(AppSize.size25),
+                      ),
+                      margin: const EdgeInsets.all(10),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              products[index].image,
+                              width: 120,
+                              height: 120,
+                              fit: BoxFit.cover,
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 5),
+                            Text(
+                              products[index].name,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
