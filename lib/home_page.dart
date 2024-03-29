@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab_mid/cart_view.dart';
+import 'package:lab_mid/detali.dart';
 import 'package:lab_mid/resources/color_manager.dart';
 import 'package:lab_mid/resources/values_manager.dart';
 
@@ -104,8 +105,12 @@ class _HomePageState extends State<HomePage> {
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Cart())),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Details(
+                                  product: products[index],
+                                ))),
                     child: Container(
                       decoration: BoxDecoration(
                         color: ColorManager.white,
