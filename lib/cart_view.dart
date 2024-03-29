@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lab_mid/payment_screen.dart';
 
 import 'cartCard.dart';
-
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -90,7 +90,12 @@ class _CartState extends State<Cart> {
                         style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.black,
                             backgroundColor: Colors.blueAccent),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const PaymentPage()));
+                        },
                         child: const Text('Pay now'))
                   ],
                 ),
